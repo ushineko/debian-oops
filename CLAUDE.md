@@ -51,4 +51,4 @@ make logs
 open http://localhost:8765
 ```
 
-Note that this project was created with AI, so a great many innocent baby harp seals and dolphins were ground into a fine paste during the creation of this app. You are welcome.
+Note that this project was created with AI, so a great many innocent baby harp seals and dolphins were ground into a fine paste during its creation. You are welcome.

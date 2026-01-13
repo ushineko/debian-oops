@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOPS - Openly Obnoxious Pretentious Shell</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm@5.3.0/css/xterm.css" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Taskbar -->
+    <nav class="taskbar">
+        <div class="start-btn" onclick="toggleStartMenu()" title="Start">
+            <span>☢️</span>
+        </div>
+
+        <!-- Start Menu Dropdown -->
+        <div id="start-menu" class="start-menu">
+            <div class="menu-item" onclick="spawnApp('about')">
+                <span>ℹ️</span> About OOPS
+            </div>
+            <div style="height:1px; background:#30363d; margin: 4px 0;"></div>
+            <div class="menu-item" onclick="spawnApp('terminal')">
+                <span>🐚</span> Terminal
+            </div>
+            <div class="menu-item" onclick="spawnApp('files')">
+                <span>📂</span> Files
+            </div>
+            <div class="menu-item" onclick="spawnApp('browser')">
+                <span>🌐</span> Web Browser
+            </div>
+            <div class="menu-item" onclick="spawnApp('fastfetch')">
+                <span>💻</span> Fastfetch
+            </div>
+            <div class="menu-item" onclick="spawnApp('bsod')">
+                <span>🤡</span> Blue Screen of Delight
+            </div>
+            <div class="menu-item" onclick="spawnApp('btop')">
+                <span>📈</span> Btop
+            </div>
+            <div class="menu-item" onclick="spawnApp('nvim')">
+                <span>📝</span> NeoVim
+            </div>
+            <div class="menu-item" onclick="spawnApp('os-release')">
+                <span>🐧</span> OS Release
+            </div>
+        </div>
+
+        <div class="task-separator"></div>
+        <div id="active-tasks" style="display:flex; gap:10px;"></div>
+
+        <div class="global-controls">
+            <select id="font-family">
+                <option value="'JetBrainsMono Nerd Font', monospace">JetBrains Mono</option>
+                <option value="'FiraCode Nerd Font', monospace">Fira Code</option>
+                <option value="'Courier New', monospace">Courier New</option>
+            </select>
+            <select id="font-size">
+                <option value="12">12px</option>
+                <option value="14" selected>14px</option>
+                <option value="16">16px</option>
+                <option value="18">18px</option>
+                <option value="20">20px</option>
+            </select>
+            <button id="logout-btn" class="logout" style="display:none;">Logout</button>
+        </div>
+    </nav>
+
+    <!-- Desktop Layer -->
+    <div id="desktop-layer">
+        <!-- Main Background Terminal -->
+        <div id="terminal-wrapper">
+            <div id="terminal-container"></div>
+        </div>
+        <!-- Windows will be appended here -->
+    </div>
+
+    <!-- Stats Footer -->
+    <div class="stats-bar">
+        <div id="stat-status" class="status-disconnected">Connecting...</div>
+        <div class="stat-group">
+            <div class="stat-item"><span class="stat-label">Time:</span><span id="stat-time"
+                    class="stat-value">--:--</span></div>
+            <div class="stat-item"><span class="stat-label">Uptime:</span><span id="stat-uptime"
+                    class="stat-value">0s</span></div>
+            <div class="stat-item"><span class="stat-label">I/O:</span><span id="stat-in" class="stat-value">0 B</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="login-modal" style="display: none;">
+        <div class="login-box">
+            <h2>Authentication Required</h2>
+            <form id="login-form">
+                <div id="login-error"></div>
+                <input type="text" id="username" placeholder="Username" required autocomplete="username">
+                <input type="password" id="password" placeholder="Password" required autocomplete="current-password">
+                <button type="submit">Access System</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/xterm@5.3.0/lib/xterm.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.8.0/lib/xterm-addon-fit.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/xterm-addon-image@0.9.0/lib/xterm-addon-image.js"></script> -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

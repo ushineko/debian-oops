@@ -1,0 +1,16 @@
+services:
+  oops:
+    build: .
+    container_name: debian_oops
+    volumes:
+      - .:/home/nverenin/git/oops
+      - ./web:/app
+      - /app/node_modules
+      - ./.tmux/resurrect:/root/.tmux/resurrect
+      - ./.zsh/zsh_history:/root/.zsh_history
+      - ./img:/root/img
+    ports:
+      - "8765:8765"
+    tty: true
+    restart: unless-stopped
+    command: ["npm", "start"]

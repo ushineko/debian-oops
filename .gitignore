@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Local Environment State (Volumes)
+.tmux/
+.zsh/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS Metadata
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Runtime Data
+web/users.json
+
+# IDE Settings
+.vscode/
+.idea/
